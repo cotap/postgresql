@@ -52,7 +52,9 @@ rescue LoadError
   end
 
   begin
-    chef_gem "pg"
+    chef_gem "pg" do
+      version '0.18.4'
+    end
   rescue Gem::Installer::ExtensionBuildError, Mixlib::ShellOut::ShellCommandFailed => e
     # Are we an omnibus install?
     raise if RbConfig.ruby.scan(%r{(chef|opscode)}).empty?
