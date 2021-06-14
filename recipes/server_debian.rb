@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 #
-# Cookbook Name:: postgresql
+# Cookbook:: postgresql
 # Recipe:: server
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,22 +16,22 @@
 # limitations under the License.
 #
 
-include_recipe "postgresql::client"
+Chef::Log.warn 'This cookbook is being re-written to use resources, not recipes and will only be Chef 13.8+ compatible. Please version pin to 6.1.1 to prevent the breaking changes from taking effect. See https://github.com/sous-chefs/postgresql/issues/512 for details'
 
-node['postgresql']['server']['packages'].each do |pg_pack|
-  package pg_pack
-end
+include_recipe 'postgresql::client'
 
-include_recipe "postgresql::server_conf"
+package node['postgresql']['server']['packages']
 
-service "postgresql" do
+include_recipe 'postgresql::server_conf'
+
+service 'postgresql' do
   service_name node['postgresql']['server']['service_name']
-  supports :restart => true, :status => true, :reload => true
+  supports restart: true, status: true, reload: true
   action [:enable, :start]
 end
 
 execute 'Set locale and Create cluster' do
-  command 'export LC_ALL=C; /usr/bin/pg_createcluster --start ' + node['postgresql']['version'] + ' main'
+  command 'export LC_ALL=C; /usr/bin/pg_createcluster --start ' + '9.3' + ' main'
   action :run
-  not_if { ::File.directory?('/etc/postgresql/' + node['postgresql']['version'] + '/main') }
+  not_if { ::File.directory?('/etc/postgresql/' + '9.3' + '/main') }
 end
