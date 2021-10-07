@@ -99,12 +99,12 @@ when 'ubuntu'
     default['postgresql']['server']['packages'] = ['postgresql-9.4']
     default['postgresql']['contrib']['packages'] = ['postgresql-contrib-9.4']
   else
-    default['postgresql']['version'] = '9.5'
-    default['postgresql']['dir'] = '/etc/postgresql/9.5/main'
+    default['postgresql']['version'] = '9.6'
+    default['postgresql']['dir'] = '/etc/postgresql/9.6/main'
     default['postgresql']['server']['service_name'] = 'postgresql'
-    default['postgresql']['client']['packages'] = ['postgresql-client-9.5', 'libpq-dev']
-    default['postgresql']['server']['packages'] = ['postgresql-9.5']
-    default['postgresql']['contrib']['packages'] = ['postgresql-contrib-9.5']
+    default['postgresql']['client']['packages'] = ['postgresql-client-9.6', 'libpq-dev']
+    default['postgresql']['server']['packages'] = ['postgresql-9.6']
+    default['postgresql']['contrib']['packages'] = ['postgresql-contrib-9.6']
   end
 
 when 'fedora'
