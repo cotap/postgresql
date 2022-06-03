@@ -22,7 +22,7 @@ Chef::Log.warn 'This cookbook is being re-written to use resources, not recipes 
 ::Chef::Recipe.send(:include, Opscode::PostgresqlHelpers)
 
 begin
-  require 'pg'
+#  require 'pg'
 rescue LoadError
   if platform_family?('debian')
     e = apt_update 'update' do
