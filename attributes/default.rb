@@ -102,7 +102,7 @@ when 'ubuntu'
     default['postgresql']['version'] = '9.6'
     default['postgresql']['dir'] = '/etc/postgresql/9.6/main'
     default['postgresql']['server']['service_name'] = 'postgresql'
-    default['postgresql']['client']['packages'] = ['postgresql-client-9.6', 'libpq-dev']
+    default['postgresql']['client']['packages'] = ['postgresql-client-12', 'libpq-dev']
     default['postgresql']['server']['packages'] = ['postgresql-9.6']
     default['postgresql']['contrib']['packages'] = ['postgresql-contrib-9.6']
   end

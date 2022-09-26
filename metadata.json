@@ -35,7 +35,7 @@
     "postgresql::client": "Installs postgresql client package(s)",
     "postgresql::server": "Installs postgresql server packages, templates"
   },
-  "version": "6.1.7",
+  "version": "6.1.8",
   "source_url": "https://github.com/sous-chefs/postgresql",
   "issues_url": "https://github.com/sous-chefs/postgresql/issues",
   "privacy": false,
